@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ProductType>
+@{
+    Layout = "_AdminLayout";
+}
+
+<h2>ProductTypes</h2>
+
+<a asp-action="AddProductType" asp-controller="ProductType" class="btn btn-primary">Add More</a>
+
+<table class="table table-striped my-2">
+    <tr>
+        <th>ProductType</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach(var ProductType in Model)
+    {
+        <tr>
+            <td>@ProductType.ProductTypeName</td>
+            <td>
+                <a asp-action="UpdateProductType" asp-controller="ProductType" asp-route-id="@ProductType.Id" class="btn btn-success">Edit</a>
+                <a asp-action="DeleteProductType" asp-controller="ProductType" asp-route-id="@ProductType.Id" class="btn btn-danger" onclick="return window.confirm('Are you sure?')">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+

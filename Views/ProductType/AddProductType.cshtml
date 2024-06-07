@@ -1,0 +1,22 @@
+﻿@model ProductTypeDTO
+@{
+    Layout = "_AdminLayout";
+}
+@* @Html.ValidationSummary() *@
+<div style="width:50%">
+<h2> Add ProductType </h2>
+<a asp-action="Index" asp-controller="ProductType" class="btn btn-primary">Back</a>
+<form asp-action="AddProductType">
+   @* <input type="hidden" asp-for="Id" /> *@
+
+   <div class="my-2">
+      <label>ProductType</label>
+      <input type="text" class="form-control" asp-for="ProductTypeName" />
+            <span asp-validation-for="ProductTypeName" class="text-danger"></span>
+   </div>
+
+   <div class="my-2">
+      <button type="submit" class="btn btn-info">Add</button>
+   </div>
+</form>
+</div>
